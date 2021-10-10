@@ -71,7 +71,8 @@ contract FallBack {
     
 
 
-    // new contract will send ether to Fallback contract which will trigger the fallback function (that's the whole point here)
+    // new contract will send ether to Fallback contract which will trigger the fallback function 
+       (that's the whole point here)
     
     // And we are going to create two functions:
     // - one function where we're going to transfer ether using the TRANSFER method
@@ -159,19 +160,22 @@ contract SendToFallback {
     
     A fallback function can be virtual, can override and can have modifiers.
 
-    The fallback function is executed on a call to the contract if none of the other functions match the given function signature, 
-    or if no data was supplied at all and there is no receive Ether function. 
+    The fallback function is executed on a call to the contract if none of the other 
+    functions match the given function signature, or if no data was supplied at all and 
+    there is no receive Ether function. 
 
-    The fallback function always receives data, but -----> in order to also receive Ether it must be marked payable. 
+    The fallback function always receives data, but --> in order to also receive Ether it must be marked payable. 
 
-    If the version with parameters is used, _input will contain the full data sent to the contract (equal to msg.data) 
-    and can return data in _output. 
+    If the version with parameters is used, _input will contain the full data sent to the contract
+    (equal to msg.data) and can return data in _output. 
     The returned data will not be ABI-encoded. Instead it will be returned without modifications (not even padding).
 
     In the worst case, if a payable fallback function is also used in place of a receive function, 
-    it can only rely on 2300 gas being available (see receive Ether function for a brief description of the implications of this).
+    it can only rely on 2300 gas being available (see receive Ether function for a brief description 
+    of the implications of this).
 
-    Like any function, the fallback function can execute complex operations as long as there is enough gas passed on to it.
+    Like any function, the fallback function can execute complex operations as long as there is enough
+    gas passed on to it.
 
     Warning!
 
@@ -188,8 +192,8 @@ contract SendToFallback {
     from outside the blockchain. 
     
     Since some part of the log data is stored in bloom filters, it is possible to search for this data 
-    in an efficient and cryptographically secure way, so network peers that do not download the whole blockchain
-    (so-called “light clients”) can still find these logs.
+    in an efficient and cryptographically secure way, so network peers that do not download 
+    the whole blockchain(so-called “light clients”) can still find these logs.
     
     
     Address (is a Type) -------------------------------------------------------------------------
@@ -209,7 +213,8 @@ contract SendToFallback {
     Implicit conversions from address payable to address are allowed, whereas conversions from address 
     to address payable must be explicit via payable(<address>).
 
-    Explicit conversions to and from address are allowed for uint160, integer literals, bytes20 and contract types.
+    Explicit conversions to and from address are allowed for uint160, integer literals, 
+    bytes20 and contract types.
 
     Only expressions of type address and contract-type can be converted to the type address payable via 
     the explicit conversion payable(...). 
