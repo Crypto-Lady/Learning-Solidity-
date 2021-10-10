@@ -164,7 +164,8 @@ contract SendToFallback {
 
     The fallback function always receives data, but -----> in order to also receive Ether it must be marked payable. 
 
-    If the version with parameters is used, _input will contain the full data sent to the contract (equal to msg.data) and can return data in _output. 
+    If the version with parameters is used, _input will contain the full data sent to the contract (equal to msg.data) 
+    and can return data in _output. 
     The returned data will not be ABI-encoded. Instead it will be returned without modifications (not even padding).
 
     In the worst case, if a payable fallback function is also used in place of a receive function, 
@@ -183,7 +184,8 @@ contract SendToFallback {
     It is possible to store data in a specially indexed data structure that maps all the way up to the block level. 
     feature called logs is used by Solidity in order to implement events. 
     
-    Contracts cannot access log data after it has been created, but they can be efficiently accessed from outside the blockchain. 
+    Contracts cannot access log data after it has been created, but they can be efficiently accessed 
+    from outside the blockchain. 
     
     Since some part of the log data is stored in bloom filters, it is possible to search for this data 
     in an efficient and cryptographically secure way, so network peers that do not download the whole blockchain
@@ -199,22 +201,27 @@ contract SendToFallback {
 
     address payable: Same as address, but with the additional members transfer and send.
 
-    The idea behind this distinction is that address payable is an address you can send Ether to, while a plain address cannot be sent Ether.
+    The idea behind this distinction is that address payable is an address you can send Ether to, 
+    while a plain address cannot be sent Ether.
 
     Type conversions:
 
-    Implicit conversions from address payable to address are allowed, whereas conversions from address to address payable must be explicit via payable(<address>).
+    Implicit conversions from address payable to address are allowed, whereas conversions from address 
+    to address payable must be explicit via payable(<address>).
 
     Explicit conversions to and from address are allowed for uint160, integer literals, bytes20 and contract types.
 
-    Only expressions of type address and contract-type can be converted to the type address payable via the explicit conversion payable(...). 
+    Only expressions of type address and contract-type can be converted to the type address payable via 
+    the explicit conversion payable(...). 
     
-    For contract-type, this conversion is only allowed if the contract can receive Ether, i.e., the contract either has a receive or a payable fallback function. 
+    For contract-type, this conversion is only allowed if the contract can receive Ether, i.e., 
+    the contract either has a receive or a payable fallback function. 
     tion to this rule.
 
     Note:
 
-    If you need a variable of type address and plan to send Ether to it, then declare its type as address payable to make this requirement visible. 
+    If you need a variable of type address and plan to send Ether to it, then declare its type as address 
+    payable to make this requirement visible. 
     Also, try to make this distinction or conversion as early as possible.
 
 */
